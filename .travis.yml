@@ -5,6 +5,7 @@ branches:
   only:
     - master --仅master分支push后才会构建
 install:
+
     - npm install
 script:
     - npm run build
