@@ -10,7 +10,7 @@ script: yarn build
 
 after_script:
   # - cd ./dist
-  - rm -rf .git
+  - rm -rf .gitignore
   - git init
   - git config --global user.name "annder"
   - git config --global user.email "2461067798@qq.com"
