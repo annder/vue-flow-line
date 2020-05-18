@@ -8,8 +8,8 @@ install: yarn
 
 script: yarn build
 
-after_success:
-  - cd ./dist
+after_script:
+  # - cd ./dist
   - rm -rf .git
   - git init
   - git config --global user.name "annder"
