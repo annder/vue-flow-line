@@ -8,9 +8,14 @@ install: yarn
 
 script: yarn build
 
-env:
-  global:
-    secure: hash value
+after_success:
+  - cd ./dist
+  - git init
+  - git config --global user.name "annder"
+  - git config --global user.email "2461067798@qq.com"
+  - git add .
+  - git commit -m "Automatically update from travis-ci"
+  - git push --quiet --force  "https://github.com/annder/vue-flow-line/tree/gh-pages" master:gh-pages
 
 deploy:
   provider: pages
