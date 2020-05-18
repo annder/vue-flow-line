@@ -1,0 +1,16 @@
+langage: node_js
+node_js:
+  - "12.13.0"
+git:
+  depth: 1
+
+install: yarn
+
+script: yarn build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: ci # Set in travis-ci.org dashboard
+  on:
+    branch: master
