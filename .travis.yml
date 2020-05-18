@@ -1,22 +1,17 @@
-language: node_js
+langage: node_js
 node_js:
-    - '12'
-branches:
-  only:
-    - master --仅master分支push后才会构建
-install:
+  - "12.13.0"
+git:
+  depth: 1
 
-    - npm install
-script:
-    - npm run build
-after_script:
-  - ls -a
-  - rm -rf .git --如果推送整个目录则需要删除.git文件，如果只推送构建后的文件目录dist则cd ./dist就行，不需要删除.git文件，否则最后一句git push会推送不上
-  - ls -a
-  - git init
-  - git config user.name "annter"
-  - git config user.email "2461067798@163.com"
-  - git add .
-  - git commit -m "commit 111"
-  - git status
-  - git push --force --quiet "https://github.com/annder/vue-flow-line.git" master:dev
+install: yarn
+
+script: yarn build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $ci
+  local_dir: dist
+  on:
+    branch: master
